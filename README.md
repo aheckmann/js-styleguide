@@ -93,7 +93,7 @@ function Movie (id, title) {
 
   this.id = id;
   this.title = title;
-}
+};
 
 var gravity = new Movie(1, 'Gravity');
 ```
@@ -105,11 +105,11 @@ Name your functions. It aids in comprehension when coming back to it six months 
 ```js
 model.findOne(params, function (err, doc) {
   // not very helpful
-})
+});
 
 model.findOne(params, function userCallback (err, doc) {
   // more helpful
-})
+});
 ```
 
 ### Function Spacing
@@ -127,11 +127,11 @@ Leave a space before and after your `function` declaration/expression parenthesi
 ```js
 function eatIceCream(){
   // inconsistent
-}
+};
 
 function eatIceCream () {
   // consistent
-}
+};
 ```
 
 ### Ternary Spacing
@@ -166,7 +166,7 @@ var msg = 'not so confusing';
 if (first) {
   msg = isValid(thing)
     ? 'ok'
-    : 'fail'
+    : 'fail';
 }
 ```
 
@@ -218,16 +218,16 @@ var array = [
 var nestedArray = [
     ['this', 'is', 'a', 'nested', 'array']
   , ['this', 'is', 'too']
-]
+];
 
 // objects with on property may be inlined
-var simpleObject = { x: 1 }
+var simpleObject = { x: 1 };
 
 // objects with more than one property should use comma first
 var avgObject = {
     first: 1
   , second: 2
-}
+};
 
 // nested objects
 var nestedObjects = {
@@ -373,7 +373,7 @@ parameters and return values. Examples are always appreciated.
 
 function add (num1, num2) {
   return num1 + num2;
-}
+};
 ```
 
 ### Modifying Native Prototypes
@@ -385,14 +385,14 @@ There's always a better way.
 // please no
 Array.prototype.contains = function (needle) {
   return this.indexOf(needle) > -1;
-}
+};
 
 // For example, create a helper module with a function that accepts an array:
 
 // helpers/array.js
 exports.contains = function (array, needle) {
   return array.indexOf(needle) > -1;
-}
+};
 ```
 
 ## CoffeeScript
