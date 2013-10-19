@@ -16,6 +16,7 @@ code as consistently and maintainable as possible.
 * [Function Spacing](#function-spacing)
 * [Ternary Spacing](#ternary-spacing)
 * [Semi-colons](#semi-colons)
+* [Variables](#variables)
 * [Comma First](#commas)
 * [Errors](#errors)
 * [Return Early](#return-early)
@@ -196,16 +197,23 @@ you may just be surprised how few places there are. I personally think it's easi
 learn the rules and use them only where they're required, but for even mid-size teams, it's
 simpler to just use 'em and move on.
 
+### Variables
+
+When declaring multiple variables, use "var first" style.
+
+```js
+var fix = true;
+var nice = 'you best';
+var woot = require('woot');
+```
+
+This makes for easier copy/paste later on and less futzing around with semi-colons and commas.
+
 ### Commas
 
 Use [comma first](https://gist.github.com/isaacs/357981).
 
 ```js
-// variables
-var fix = true
-  , nice = 'you bet'
-  , woot = require('wootFactory');
-
 // arrays
 var array = [
     'my'
