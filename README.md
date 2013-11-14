@@ -87,7 +87,7 @@ var planQuery = model.findById(planId);
 Constructors should use [upper camel case](http://en.wikipedia.org/wiki/camelCase#Variations_and_synonyms) to hint to its intended use.
 
 ```js
-function Movie (id, title) {
+function Movie(id, title) {
   if (!(this instanceof Movie)) {
     return new Movie(id, title);
   }
@@ -104,11 +104,11 @@ var gravity = new Movie(1, 'Gravity');
 Name your functions. It aids in comprehension when coming back to it six months later and provides more descriptive stack traces.
 
 ```js
-model.findOne(params, function (err, doc) {
+model.findOne(params, function(err, doc) {
   // not very helpful
 });
 
-model.findOne(params, function userCallback (err, doc) {
+model.findOne(params, function userCallback(err, doc) {
   // more helpful
 });
 ```
@@ -123,14 +123,14 @@ eatIceCream (); // inconsistent
 eatIceCream();  // consistent
 ```
 
-Leave a space before and after your `function` declaration/expression parenthesis to clarify the `function` is not being executed.
+Leave a space between your `function` declaration/expression parenthesis and the opening `{`.
 
 ```js
 function eatIceCream(){
   // inconsistent
 };
 
-function eatIceCream () {
+function eatIceCream() {
   // consistent
 };
 ```
@@ -176,7 +176,7 @@ if (first) {
 Use em.
 
 ```js
-function semis () {
+function semis() {
   // codez
 }
 
@@ -184,7 +184,7 @@ function semis () {
 ```
 
 ```js
-function semis () {
+function semis() {
   // codez
 };   // <--------
 
@@ -287,7 +287,7 @@ Same goes for callbacks. If an error condition is identified, pass an instance o
 to the callback.
 
 ```js
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   var err = failedValidation(req)
     ? new Error('could not parse request')
     : undefined;
@@ -301,10 +301,10 @@ app.use(function (req, res, next) {
 Return early whereever you can to reduce nesting and complexity.
 
 ```js
-function checkSomething (req, res, next) {
+function checkSomething(req, res, next) {
   if (req.params.id) {
     if (isValidId(req.params.id)) {
-      find(req.params.id, function (err, doc) {
+      find(req.params.id, function(err, doc) {
         if (err) return next(err);
         res.render('plan', doc);
       });
@@ -317,7 +317,7 @@ function checkSomething (req, res, next) {
 };
 
 // return early
-function checkSomething (req, res, next) {
+function checkSomething(req, res, next) {
   if (!req.params.id) {
     return next();
   }
@@ -326,7 +326,7 @@ function checkSomething (req, res, next) {
     return next(new Error('bad id'));
   }
 
-  find(req.params.id, function (err, doc) {
+  find(req.params.id, function(err, doc) {
     if (err) return next(err);
     res.render('plan', doc);
   });
@@ -341,7 +341,7 @@ constructor and passing along the arguments.
 This guards against programmer error with negligable downside.
 
 ```js
-function Script (code) {
+function Script(code) {
   this.code = code;
 };
 
@@ -349,7 +349,7 @@ var script = Script('var x = 1');
 console.log(script); // undefined
 
 // better
-function Script (code) {
+function Script(code) {
   if (!(this instanceof Script)) {
     return new Script(code);
   }
@@ -379,7 +379,7 @@ parameters and return values. Examples are always appreciated.
  * @return {Number}
  */
 
-function add (num1, num2) {
+function add(num1, num2) {
   return num1 + num2;
 };
 ```
@@ -391,14 +391,14 @@ There's always a better way.
 
 ```js
 // please no
-Array.prototype.contains = function (needle) {
+Array.prototype.contains = function(needle) {
   return this.indexOf(needle) > -1;
 };
 
 // For example, create a helper module with a function that accepts an array:
 
 // helpers/array.js
-exports.contains = function (array, needle) {
+exports.contains = function(array, needle) {
   return array.indexOf(needle) > -1;
 };
 ```
