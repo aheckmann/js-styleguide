@@ -135,6 +135,23 @@ function eatIceCream() {
 };
 ```
 
+There should be no empty lines between the function name and the first line of code.
+
+```js
+// inconsistant
+function eatIceCream() {
+
+  var dessert = bowl().of(iceCream);
+  human.eat(desert);
+}
+
+// consistant
+function eatIceCream() {
+  var dessert = bowl().of(iceCream);
+  human.eat(desert);
+}
+```
+
 ### Ternary Spacing
 
 Break ternarys across multiple indented lines. It's easier to switch the values around when you come back to it later and realize a mistake.
