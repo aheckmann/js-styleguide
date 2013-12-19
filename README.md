@@ -18,6 +18,8 @@ code as consistently and maintainable as possible.
 * [Semi-colons](#semi-colons)
 * [Variables](#variables)
 * [Comma First](#commas)
+* [Equality](#equality)
+* [Self](#references-to-this)
 * [Errors](#errors)
 * [Return Early](#return-early)
 * [`new` is Optional](#new-is-optional)
@@ -261,6 +263,37 @@ var nestedObjects = {
         nested: 'indeed'
       , you: 'see'
     }
+};
+```
+
+## Equality
+
+When comparing a variable against a literal or native type, always place the variable after the equality check.
+
+```js
+if (false === myVariable) ..
+
+if ('string' == typeof myVariable) ..
+```
+
+This way we discourage progamming errors due to unintentional assignment.
+
+```js
+if (myVariable = false) // oops
+
+if (typeof myVariable = 'string') // oops
+```
+
+## References to `this`
+
+Name variable references to `this` "self".
+
+```js
+Dancer.prototyp.selfie = function selfie() {
+  var self = this;
+  return function() {
+    console.log(self);
+  };
 };
 ```
 
