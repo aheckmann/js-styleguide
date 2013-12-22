@@ -195,7 +195,7 @@ if (first) {
 Use em.
 
 ```js
-function semis() {
+var semis = function() {
   // codez
 }
 
@@ -203,7 +203,7 @@ function semis() {
 ```
 
 ```js
-function semis() {
+var semis = function() {
   // codez
 };   // <--------
 
