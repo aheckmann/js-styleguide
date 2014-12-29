@@ -140,14 +140,14 @@ function eatIceCream() {
 There should be no empty lines between the function name and the first line of code.
 
 ```js
-// inconsistant
+// inconsistent
 function eatIceCream() {
 
   var dessert = bowl().of(iceCream);
   human.eat(desert);
 }
 
-// consistant
+// consistent
 function eatIceCream() {
   var dessert = bowl().of(iceCream);
   human.eat(desert);
